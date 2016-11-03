@@ -29,6 +29,10 @@ def parseInterviewDataRaw(dataRaw, comments=[u'Оставьте коммента
         u'Тип ответов',
         u'Ответы']]
     record = []
+    print '¬¬¬¬¬¬¬¬¬¬¬¬¬'
+    for i in comments:
+        print i
+    print '¬¬¬¬¬¬¬¬¬¬¬¬¬'
     for recordRaw in dataRaw:
         record = [
             recordRaw[1][0].strip('\n'),
@@ -37,6 +41,7 @@ def parseInterviewDataRaw(dataRaw, comments=[u'Оставьте коммента
             recordRaw[2][2].strip('\n'),
             recordRaw[2][0].strip('\n')
             ]
+        print record[4]
         if (record[4] in comments):
             record += ['comment']
             answers = [answer[0].strip('\n') for answer in recordRaw[3:]]

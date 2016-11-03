@@ -22,7 +22,8 @@ if (args.comments):
     text = open(path)
     args.comments = []
     for line in text:
-        args.comments += [item.strip("\n")]
+        if line!='\n':
+            args.comments += [line.decode('utf8').strip("\n'")]
     text.close()
 else:
     args.comments = [u'Оставьте комментарий:']
