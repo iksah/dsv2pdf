@@ -12,8 +12,6 @@ from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont  
 import csv
-# -*- coding: utf-8 -*-
-
 
 def csv2pdf(data, path="result.pdf", plotType = "pie"):
     if (len(data) < 1):
@@ -61,8 +59,8 @@ def csv2pdf(data, path="result.pdf", plotType = "pie"):
                 return
             imgdata = cStringIO.StringIO()
             img.savefig(imgdata, format = 'png')
-            Image = ImageReader(imgdata)
-            c.drawImage(Image, 27, 200, 400,400)
+            imgToIns = Image.open(imgdata)
+            c.drawImage(ingToIns, 27, 200, 400,400)
             img.clf()
         c.showPage()
     c.save()
