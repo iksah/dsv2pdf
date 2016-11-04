@@ -19,13 +19,13 @@ def csv2pdf(data, path="result.pdf", plotType = "pie"):
     if (len(data) < 1):
         print "No data to create pdf"
     c = canvas.Canvas(path, pagesize = A4)
-    pdfmetrics.registerFont(TTFont('Verdana', 'Verdana.ttf'))
-    c.setFont("Verdana", 30)
+    pdfmetrics.registerFont(TTFont('Free Serif', 'FreeSerif.ttf'))
+    c.setFont("Free Serif", 30)
     c.drawString(100, 400, u'РЕЗУЛЬТАТЫ ОПРОСА')
     c.showPage()
     headers = data[0]
     for record in data[1:]:
-        c.setFont("Verdana", 14)
+        c.setFont("Free Serif", 14)
         c.drawString(27, 750, headers[0]+ ' : ' + record[0])
         c.drawString(27, 720, headers[1]+ ' : ' + record[1])
         c.drawString(27, 690, headers[2]+ ' : ' + record[2])
@@ -38,9 +38,9 @@ def csv2pdf(data, path="result.pdf", plotType = "pie"):
                 y -= 30
         else:
             img = plt.figure(figsize = (6, 4.5))
-            font = {'family': 'Verdana',
-                    'weight': 'normal'}
-            rc('font', **font)
+            # font = {'family': 'Serif',
+            #         'weight': 'normal'}
+            # rc('font', **font)
             if (plotType == "pie"):
                 plt.pie(x = [int(dig) for dig in record[6:]],
                     labels = [
@@ -71,14 +71,14 @@ def csvCommon2pdf(data, path="result.pdf"):
     if (len(data) < 1):
         print "No data to create pdf"
     c = canvas.Canvas(path, pagesize = A4)
-    pdfmetrics.registerFont(TTFont('Verdana', 'Verdana.ttf'))
-    c.setFont("Verdana", 30)
+    pdfmetrics.registerFont(TTFont('Free Serif', 'FreeSerif.ttf'))
+    c.setFont("Free Serif", 30)
     c.drawString(100, 400, u'РЕЗУЛЬТАТЫ ОПРОСА')
     c.drawString(120, 300, u'(общие вопросы)')
     c.showPage()
     headers = data[0]
     for record in data[1:]:
-        c.setFont("Verdana", 14)
+        c.setFont("Free Serif", 14)
         c.drawString(27, 750, record[0])
         y = 720
         for comment in record[1:]:
