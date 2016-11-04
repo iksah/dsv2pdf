@@ -60,7 +60,7 @@ def csv2pdf(data, path="result.pdf", plotType = "pie"):
             imgdata = cStringIO.StringIO()
             img.savefig(imgdata, format = 'png')
             imgToIns = Image.open(imgdata)
-            c.drawImage(ingToIns, 27, 200, 400,400)
+            c.drawImage(imgToIns, 27, 200, 400,400)
             img.clf()
         c.showPage()
     c.save()
