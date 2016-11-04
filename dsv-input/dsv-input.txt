@@ -1,1 +1,0 @@
-parse .dsv files to python list
