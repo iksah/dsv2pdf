@@ -24,11 +24,13 @@ for arg in argsN.args:
 if not('pathFrom' in args):
 	print helpTxt
 else:
+	if not('pathTo' in args):
+		args['pathTo'] = 'result.pdf'
 	if not('chartType' in args):
 		args['chartType'] = 'pie'
 	if not('type' in arg):
 		args['type'] = 'full'
-	if not('comments' in args):
+	if ('comments' in args):
 		path = args['comments']
 		text = open(path)
 		args['comments'] = []
