@@ -47,4 +47,4 @@ if (ar_type == 'full'):
 	csv2pdf = csv2pdf.csv2pdf(csvData ,ar_pathTo, ar_chartType)
 elif (ar_type == 'common'):
 	csvData = interview2csv.parseInterviewDataRawCommon(interview2csv.readDataRaw(ar_pathFrom), ar_comments)
-	csv2pdf = csv2pdf.csvCommon2pdf(ar_pathTo)
+	csv2pdf = csv2pdf.csvCommon2pdf(csvData,ar_pathTo)

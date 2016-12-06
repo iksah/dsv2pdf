@@ -37,22 +37,23 @@ def csv2pdf(data, path="result.pdf", plotType = "pie"):
                 c.drawString(27, y, '    ' + comment)
                 y -= 30
         else:
-            img = plt.figure(figsize = (6, 4.5))
+            img = plt.figure(figsize = (10, 7.5))
             # font = {'family': 'Serif',
             #         'weight': 'normal'}
             # rc('font', **font)
             if (plotType == "pie"):
+		sum = 0
+                for buf in record[6:]:
+                    sum += int(buf)
                 plt.pie(x = [int(dig) for dig in record[6:]],
                     labels = [
-                        '1 : '+record[6],
-                        '2 : '+record[7],
-                        '3 : '+record[8],
-                        '4 : '+record[9],
-                        '5 : '+record[10
-                    ]],
-                    startangle = 95,
-                    autopct = '%1.1f%%')
-                plt.legend()
+                        '1 : '+record[6] + ' ('+ str(int(record[6]) * 100 / sum) + '%)',
+                        '2 : '+record[7]+ ' ('+ str(int(record[7]) * 100 / sum)  + '%)',
+                        '3 : '+record[8]+ ' ('+ str(int(record[8]) * 100 / sum) + '%)' ,
+                        '4 : '+record[9]+ ' ('+str(int(record[9]) * 100 / sum) + '%)' ,
+                        '5 : '+record[10]+ ' ('+ str(int(record[10]) * 100 / sum) + '%)' ],
+                    startangle = 95,pctdistance = 20,labeldistance =20)
+                plt.legend(loc="best")
             elif (plotType == "bar"):
                 bins = [1,2,3,4,5]
                 plt.bar(bins, [int(dig) for dig in record[6:]], color = 'red')
@@ -68,6 +69,7 @@ def csv2pdf(data, path="result.pdf", plotType = "pie"):
     c.save()
 
 def csvCommon2pdf(data, path="result.pdf"):
+    
     if (len(data) < 1):
         print "No data to create pdf"
     c = canvas.Canvas(path, pagesize = A4)
@@ -86,6 +88,7 @@ def csvCommon2pdf(data, path="result.pdf"):
             y -= 30
         c.showPage()
     c.save()
+    
 
 #path = 'interview.csv'
 #text = open(path)

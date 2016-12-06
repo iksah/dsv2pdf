@@ -4,7 +4,10 @@
 import string
 
 def readDataRaw(path):
+
     text = open(path)
+   # print("this TEXT!!!!!!!!!!!!!!!!!!\n")
+   # print(text)
     dataRaw = []
     recordRaw = []
     for line in text:
@@ -49,7 +52,8 @@ def parseInterviewDataRaw(dataRaw, comments=[u'Оставьте коммента
         data += [record]
     return data
 
-def parseInterviewDataRawCommon(dataRaw):
+
+def parseInterviewDataRawCommon(dataRaw, comments=[u'Оставьте комментарий:']):
     data = [[
         u'Вопрос',
         u'Ответы'
