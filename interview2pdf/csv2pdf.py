@@ -45,15 +45,20 @@ def csv2pdf(data, path="result.pdf", plotType = "pie"):
 		sum = 0
                 for buf in record[6:]:
                     sum += int(buf)
-                plt.pie(x = [int(dig) for dig in record[6:]],
-                    labels = [
-                        '1 : '+record[6] + ' ('+ str(int(record[6]) * 100 / sum) + '%)',
-                        '2 : '+record[7]+ ' ('+ str(int(record[7]) * 100 / sum)  + '%)',
-                        '3 : '+record[8]+ ' ('+ str(int(record[8]) * 100 / sum) + '%)' ,
-                        '4 : '+record[9]+ ' ('+str(int(record[9]) * 100 / sum) + '%)' ,
-                        '5 : '+record[10]+ ' ('+ str(int(record[10]) * 100 / sum) + '%)' ],
-                    startangle = 95,pctdistance = 20,labeldistance =20)
-                plt.legend(loc="best")
+                iter = 0
+                lst = []
+                lbl = []
+                col = ['#00FF00', '#FFFF00', '#FF0000', '#48D1CC', '#C71585']
+                for j in record[6:]:
+                    iter += 1
+                    if j!='0':
+                        lst.append(int(j))
+                        lbl.append(str(iter) + ':' + j + '(' + str(int(j) * 100 / sum) + '%)' )
+                    hex = col[:len(lst)]
+                    plt.pie(x = lst,
+                        labels = lbl, colors = hex,
+                        startangle = 95,pctdistance = 20,labeldistance =20)
+                    plt.legend(loc="best")
             elif (plotType == "bar"):
                 bins = [1,2,3,4,5]
                 plt.bar(bins, [int(dig) for dig in record[6:]], color = 'red')
