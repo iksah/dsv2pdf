@@ -54,11 +54,11 @@ def csv2pdf(data, path="result.pdf", plotType = "pie"):
                     if j!='0':
                         lst.append(int(j))
                         lbl.append(str(iter) + ':' + j + '(' + str(int(j) * 100 / sum) + '%)' )
-                    hex = col[:len(lst)]
-                    plt.pie(x = lst,
+                hex = col[:len(lst)]
+                plt.pie(x = lst,
                         labels = lbl, colors = hex,
                         startangle = 95,pctdistance = 20,labeldistance =20)
-                    plt.legend(loc="best")
+                plt.legend(loc="best")
             elif (plotType == "bar"):
                 bins = [1,2,3,4,5]
                 plt.bar(bins, [int(dig) for dig in record[6:]], color = 'red')
