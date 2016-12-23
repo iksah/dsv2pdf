@@ -95,16 +95,7 @@ def csvCommon2pdf(data, path="result.pdf"):
     c.save()
     
 
-#path = 'interview.csv'
-#text = open(path)
-#dataRaw = []
-#recordRaw = []
-#for line in text:
-#    if (line!= '\n'):
-#        reader = csv.reader([line], delimiter=',', quotechar="'")
-#        dataRaw += [[item.strip("' ").decode('utf8') for item in row] for row in reader]
-#text.close()
-#csv2pdf(dataRaw, "result.pdf", "bar")
+
 
 
 
