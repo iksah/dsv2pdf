@@ -8,7 +8,7 @@ import csv2pdf
 parser = argparse.ArgumentParser()
 
 
-parser.add_argument("pathFrom", type=str, help="путь к файлу с результатами опроса " )
+parser.add_argument("-pf", type=str, help="путь к файлу с результатами опроса ", dest = "pathFrom" )
 
 parser.add_argument("-pt",  type=str,help=" путь(имя) к файлу-отчету (с раширением .pdf), по умолчанию: ./result.pdf", dest = "pathTo")
 
