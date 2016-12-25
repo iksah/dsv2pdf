@@ -18,7 +18,7 @@ parser.add_argument("-bd", type=str, help="название базы данны�
 parser.add_argument("-col", type=str, help="называние коллекции", dest = "collection" )
 parser.add_argument("-sur", type=str, help="имя преподователя", dest = "sur" )
 parser.add_argument("-sub", type=str, help="название предмета", dest = "sub" )
-parser.add_argument("-mar", type=str, help="название направления", dest = "mar" )
+parser.add_argument("-spe", type=str, help="название направления", dest = "mar" )
 
 
 parser.add_argument("-pf", type=str, help="путь к файлу с результатами опроса ", dest = "pathFrom" )
